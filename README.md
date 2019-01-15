@@ -3,6 +3,15 @@
 This repo will contain saved instances of Santa Monica website in warc format
 
 
+## How to install
+```
+git clone https://github.com/hackla-engage/engage-warc-test
+cd engage-warc-test
+virtualenv venv/ --no-site-packages
+source venv/bin/activate
+pip3 install -r requirements.txt
+```
+
 ## Models
 https://github.com/hackla-engage/engage-backend/blob/master/CouncilTag/ingest/models.py
 

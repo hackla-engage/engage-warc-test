@@ -12,6 +12,14 @@ source venv/bin/activate
 pip3 install -r requirements.txt
 ```
 
+
+
+## Recording pages
+```
+wayback --record --live -a
+navigate to http://localhost:8080/smgov/record/<url> in the browser # --auto-interval is unnecessary
+```
+
 ## Models
 https://github.com/hackla-engage/engage-backend/blob/master/CouncilTag/ingest/models.py
 

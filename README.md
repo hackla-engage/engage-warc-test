@@ -13,8 +13,14 @@ pip3 install -r requirements.txt
 ```
 
 
+## How to playback archives
+```
+wayback
+```
 
-## Recording pages
+
+
+## How to record pages
 ```
 wayback --record --live -a
 navigate to http://localhost:8080/smgov/record/<url> in the browser # --auto-interval is unnecessary

@@ -1,1 +1,2 @@
 pywb
+-e git+https://github.com/hungrymonkey/warc.git@python3_compat#egg=warc ##warc issue #2

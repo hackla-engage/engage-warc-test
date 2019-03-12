@@ -14,5 +14,5 @@ if __name__ == "__main__":
 	for f_name in warc_files:
 		f = warc.open( config.COLLECTIONS_PATH + str(f_name))
 		for record in f:
-			print( ",".join([ record['WARC-Target-URI'],record['WARC-Record-ID'],record['WARC-Date'] ])  ) #we only need the first record. 
+			print( ",".join([ record['WARC-Target-URI'],record['WARC-Record-ID'],record['WARC-Date'],f_name ])  ) #we only need the first record. 
 			break

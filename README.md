@@ -34,10 +34,15 @@ https://github.com/hackla-engage/engage-backend/blob/master/CouncilTag/ingest/da
 
 ## Main
 https://github.com/hackla-engage/engage-backend/blob/master/CouncilTag/ingest/management/commands/scrape_data.py
+
 https://github.com/hackla-engage/engage-backend/blob/master/CouncilTag/ingest/utils.py
 
 ## Source Website
 https://www.smgov.net/departments/clerk/agendas.aspx
+
+https://www.smgov.net/departments/clerk/AgendasRssToHTML.aspx
+
+https://www.smgov.net/departments/clerk/agendas_rss.ashx
 
 ## Depends
 https://pywb.readthedocs.io/en/latest/index.html

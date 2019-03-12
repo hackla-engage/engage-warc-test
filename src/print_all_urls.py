@@ -2,9 +2,7 @@
 
 import warc
 import os
-
-
-COLLECTIONS_DIR = '../collections/smgov/archive/'
+import config
 
 # type(f) = warc.warc.WARCFile
 # type(record) = warc.warc.WARCRecord
@@ -12,9 +10,9 @@ COLLECTIONS_DIR = '../collections/smgov/archive/'
 # type(warc.warc.WARCRecord.header) = <class 'warc.warc.WARCHeader'>
 
 if __name__ == "__main__":
-	warc_files = os.listdir(COLLECTIONS_DIR)
+	warc_files = os.listdir(config.COLLECTIONS_PATH)
 	for f_name in warc_files:
-		f = warc.open( COLLECTIONS_DIR + str(f_name))
+		f = warc.open( config.COLLECTIONS_PATH + str(f_name))
 		for record in f:
 			print( ",".join([ record['WARC-Target-URI'],record['WARC-Record-ID'],record['WARC-Date'] ])  ) #we only need the first record. 
 			break

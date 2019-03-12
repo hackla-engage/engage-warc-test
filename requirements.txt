@@ -1,2 +1,3 @@
 pywb
--e git+https://github.com/hungrymonkey/warc.git@python3_compat#egg=warc ##warc issue #2
+python-dateutil #warc deps
+-e git+https://github.com/hungrymonkey/warc.git@python3_popol1991#egg=warc ##warc issue #2

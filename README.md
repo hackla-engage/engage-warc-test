@@ -42,5 +42,7 @@ https://www.smgov.net/departments/clerk/agendas.aspx
 
 https://www.smgov.net/departments/clerk/AgendasRssToHTML.aspx
 
+https://www.smgov.net/departments/clerk/agendas_rss.ashx
+
 ## Depends
 https://pywb.readthedocs.io/en/latest/index.html

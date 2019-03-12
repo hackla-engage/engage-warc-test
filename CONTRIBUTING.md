@@ -12,7 +12,7 @@ Anyone is welcome to open an issue report for feature requests and feedback.
 Pull Request Guidelines
 
 For specific git instructions, see GitHub workflow 101.
-Right now, we will not accept web page snapshots until this project has a review pipeline.
+Right now, we will not accept web page snapshots until this project has a parser review pipeline.
 
 Public Resources
 

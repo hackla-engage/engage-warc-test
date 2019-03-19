@@ -19,9 +19,10 @@ class ArchiveUrl:
 
 	def get_wayback_url(self):
 		"""
-		This function generates the proper url
-		Sample url : http://localhost:8080/smgov/20190312021930/https://www.smgov.net/departments/clerk/agendas.aspx
-		mp_ is needed for frameless https://pywb.readthedocs.io/en/latest/manual/configuring.html#framed-vs-frameless-replay
+		This function generates the wayback url when the wayback server is running
+		Sample framed url: http://localhost:8080/smgov/20190312021930/https://www.smgov.net/departments/clerk/agendas.aspx
+		Sample frameless url: http://localhost:8080/smgov/20190129033819mp_/https://www.smgov.net/departments/clerk/agendas.aspx
+		frame url doc:  https://pywb.readthedocs.io/en/latest/manual/configuring.html#framed-vs-frameless-replay
 		"""
 		return config.SERVER + '/' + config.COLLECTION_NAME + '/' + self.datetime.strftime('%Y%m%d%H%M%S') + 'mp_'  + '/' + self.url
 

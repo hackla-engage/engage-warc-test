@@ -1,6 +1,7 @@
 import config
 import urllib.request
 import sys
+import traceback
 
 from generate_urls import ArchiveUrl
 from generate_urls import generateURL
@@ -12,6 +13,7 @@ if __name__ == "__main__":
 		try:
 			with urllib.request.urlopen(archive_url.get_wayback_url()) as response:
 				print(response.read())
-		except:
+		except Exception as error:
+			traceback.print_exc()
 			print("Error url fetch failed: " + archive_url.get_wayback_url(), file=sys.stderr)
 	config.terminate()

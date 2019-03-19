@@ -8,7 +8,7 @@ Hackforla welcomes contributions from everyone. Here are the guidelines if you a
 
 Contributions to the project or its dependencies should be made in form of Github request. Each request will be reviewed by a core contributor (someone with merge permissions) and be either merged to the main tree or require more changes based on feedback
 
-For Documentation, please read [markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
+For documentation, please read [markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
 
 Anyone is welcome to open an issue report for feature requests and feedback.
 

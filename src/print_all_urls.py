@@ -17,7 +17,16 @@ class ArchiveUrl:
 		self.datetime = datetime.strptime(d, '%Y-%m-%dT%H:%M:%SZ')
 		self.filename = file
 
-	
+"""
+This funtion generates all the ArchiveURLs
+"""
+def generateURL():
+	warc_files = os.listdir(config.COLLECTIONS_PATH)
+	for f_name in warc_files:
+		f = warc.open( config.COLLECTIONS_PATH + str(f_name))
+		for record in f:
+			yield ArchiveUrl( record['WARC-Target-URI'],record['WARC-Record-ID'],record['WARC-Date'],f_name ) #we only need the first record.
+			break
 
 if __name__ == "__main__":
 	warc_files = os.listdir(config.COLLECTIONS_PATH)

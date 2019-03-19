@@ -21,8 +21,9 @@ class ArchiveUrl:
 		"""
 		This function generates the proper url
 		Sample url : http://localhost:8080/smgov/20190312021930/https://www.smgov.net/departments/clerk/agendas.aspx
+		mp_ is needed for frameless https://pywb.readthedocs.io/en/latest/manual/configuring.html#framed-vs-frameless-replay
 		"""
-		return config.SERVER + '/' + config.COLLECTION_NAME + '/' + self.datetime.strftime('%Y%m%d%H%M%S') + '/' + self.url
+		return config.SERVER + '/' + config.COLLECTION_NAME + '/' + self.datetime.strftime('%Y%m%d%H%M%S') + 'mp_'  + '/' + self.url
 
 """
 This funtion generates all the ArchiveURLs

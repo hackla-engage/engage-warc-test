@@ -17,6 +17,13 @@ class ArchiveUrl:
 		self.datetime = datetime.strptime(d, '%Y-%m-%dT%H:%M:%SZ')
 		self.filename = file
 
+	def get_wayback_url(self):
+		"""
+		This function generates the proper url
+		Sample url : http://localhost:8080/smgov/20190312021930/https://www.smgov.net/departments/clerk/agendas.aspx
+		"""
+		return config.SERVER + '/' + config.COLLECTION_NAME + '/' + self.datetime.strftime('%Y%m%d%H%M%S') + '/' + self.url
+
 """
 This funtion generates all the ArchiveURLs
 """
@@ -34,5 +41,6 @@ if __name__ == "__main__":
 		f = warc.open( config.COLLECTIONS_PATH + str(f_name))
 		for record in f:
 			print( ",".join([ record['WARC-Target-URI'],record['WARC-Record-ID'],record['WARC-Date'],f_name ])  ) #we only need the first record.
-			print(type(record['WARC-Date'])) 
 			break
+	for url in generateURL():
+		print(url.get_wayback_url())

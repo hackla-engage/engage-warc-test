@@ -8,7 +8,7 @@ This repo will contain saved instances of Santa Monica website in warc format
 
 OSX
 
-`brew install pyenv-virtualenv python3`
+`brew install git pyenv-virtualenv python3`
 
 
 

@@ -2,10 +2,19 @@
 
 This repo will contain saved instances of Santa Monica website in warc format
 
+## Depends
+
+`git pip3 pyenv-virtualenv python3`
+
+OSX
+
+`brew install pyenv-virtualenv python3`
+
+
 
 ## How to install
 ```
-git clone https://github.com/hackla-engage/engage-warc-test
+git clone https://github.com/hackla-engage/engage-warc-test.git
 cd engage-warc-test
 virtualenv venv/ --no-site-packages
 source venv/bin/activate

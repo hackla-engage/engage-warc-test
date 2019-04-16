@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 import functools
 import traceback
 
-import datetime
+import time
 from warcio.warcwriter import WARCWriter
 from warcio.statusandheaders import StatusAndHeaders
 import requests
@@ -26,16 +26,17 @@ def post_url(url, headers):
 
 if __name__ == "__main__":
 	config.initalize_project_root()
-	today = datetime.date.today()
+	today = time.strftime("%Y%m%d%H%M%S", time.gmtime())
 	#config.initalize_record()
 	r = requests.get( config.AGENDA_URL)
 	session_headers = parse_session(r.text, 2018)
-	
-	with open(  'rec-' + today.strftime("%Y%m%d%H%M%S") + '-psuedos-MacBook-Pro.local.warc.gz', 'wb') as output:
+	fileName = 'rec-' + today + '-psuedos-MacBook-Pro.local.warc.gz'
+	with open( fileName , 'wb') as output:
 		writer = WARCWriter(output, gzip=True)
 		response = requests.post(config.AGENDA_URL, data=session_headers)
 		headers_list = response.raw.headers.items()
 		http_headers = StatusAndHeaders('200 OK', headers_list, protocol='HTTP/1.0')
 		record = writer.create_warc_record(config.AGENDA_URL, 'response', payload=response.raw, http_headers=http_headers)
 		writer.write_record(record)
+	
 	

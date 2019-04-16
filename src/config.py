@@ -13,6 +13,9 @@ AGENDA_URL = 'https://www.smgov.net/departments/clerk/agendas.aspx'
 
 RECORD_URL = 'http://localhost:8080/smgov/record'
 
+def initalize_project_root():
+	os.chdir(PROJECT_ROOT)
+
 def initialize():
 	global _wayback_process
 	os.chdir(PROJECT_ROOT) #chroot to project root dir

@@ -1,16 +1,13 @@
 import os
 import config
-import urllib3
 from bs4 import BeautifulSoup
 import functools
 import traceback
 
-
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-
+import datetime
+from warcio.warcwriter import WARCWriter
+from warcio.statusandheaders import StatusAndHeaders
+import requests
 
 def parse_session(html, year):
 	soupget = BeautifulSoup(html, 'html.parser')
@@ -24,24 +21,21 @@ def parse_session(html, year):
 	return payload
 
 def post_url(url, headers):
-	return url + '/post?' + functools.reduce(lambda acc, k: acc + '&' + k + '=' + headers[k] , headers.keys())
+	return url + '?' + functools.reduce(lambda acc, k: acc + '&' + k + '=' + headers[k] , headers.keys())
 		
 
 if __name__ == "__main__":
-	config.initalize_record()
-	http = urllib3.PoolManager()
-	r = http.request('GET', config.AGENDA_URL)
-	session_headers = parse_session(r.data, 2018)
-	#agenda_request = http.request('POST', config.AGENDA_URL, fields=session_headers)		
-	try:
-		#https://selenium-python.readthedocs.io/waits.html#explicit-waits
-		driver = webdriver.Chrome()
-		driver.get(config.RECORD_URL+ '/' + post_url(config.AGENDA_URL, session_headers))
-		wait = WebDriverWait(driver, 10)
-		wait.until(EC.presence_of_element_located((By.ID, 'title_or_url')))
-	except Exception:
-		traceback.print_exc()
-		driver.close()
-		config.terminate()
-	driver.close()
-	config.terminate()
+	config.initalize_project_root()
+	today = datetime.date.today()
+	#config.initalize_record()
+	r = requests.get( config.AGENDA_URL)
+	session_headers = parse_session(r.text, 2018)
+	
+	with open(  'rec-' + today.strftime("%Y%m%d%H%M%S") + '-psuedos-MacBook-Pro.local.warc.gz', 'wb') as output:
+		writer = WARCWriter(output, gzip=True)
+		response = requests.post(config.AGENDA_URL, data=session_headers)
+		headers_list = response.raw.headers.items()
+		http_headers = StatusAndHeaders('200 OK', headers_list, protocol='HTTP/1.0')
+		record = writer.create_warc_record(config.AGENDA_URL, 'response', payload=response.raw, http_headers=http_headers)
+		writer.write_record(record)
+	

@@ -24,7 +24,7 @@ def parse_session(html, year):
 	return payload
 
 def post_url(url, headers):
-	return url + "?" + functools.reduce(lambda acc, k: acc + '&' + k + '=' + headers[k] , headers.keys())
+	return url + '/post?' + functools.reduce(lambda acc, k: acc + '&' + k + '=' + headers[k] , headers.keys())
 		
 
 if __name__ == "__main__":
@@ -36,11 +36,11 @@ if __name__ == "__main__":
 	try:
 		#https://selenium-python.readthedocs.io/waits.html#explicit-waits
 		driver = webdriver.Chrome()
-		driver.get(config.RECORD_URL+post_url(config.AGENDA_URL, session_headers))
+		driver.get(config.RECORD_URL+ '/' + post_url(config.AGENDA_URL, session_headers))
 		wait = WebDriverWait(driver, 10)
 		wait.until(EC.presence_of_element_located((By.ID, 'title_or_url')))
 	except Exception:
-		traceback.print_exception()
+		traceback.print_exc()
 		driver.close()
 		config.terminate()
 	driver.close()

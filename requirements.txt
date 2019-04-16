@@ -2,8 +2,9 @@ pywb
 python-dateutil #warc deps
 urllib3
 -e git+https://github.com/hungrymonkey/warc.git@python3_popol1991#egg=warc ##warc issue #2
+warcio
 
 #scraper deps
-chromedriver_installer
+chromedriver-binary
 beautifulsoup4
 selenium

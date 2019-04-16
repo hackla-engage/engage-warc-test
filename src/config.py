@@ -11,6 +11,8 @@ SERVER = 'http://localhost:8080'
 
 AGENDA_URL = 'https://www.smgov.net/departments/clerk/agendas.aspx'
 
+RECORD_URL = 'http://localhost:8080/smgov/record/'
+
 def initialize():
 	global _wayback_process
 	os.chdir(PROJECT_ROOT) #chroot to project root dir
@@ -20,8 +22,9 @@ def initialize():
 def terminate():
 	_wayback_process.kill()
 
-def initalize_process():
+def initalize_record():
 	global _wayback_process
 	os.chdir(PROJECT_ROOT)
 	_wayback_process = subprocess.Popen(["wayback", "--record", "--live", "-a"])
-	time.sleep(5)
+	time.sleep(3)
+	

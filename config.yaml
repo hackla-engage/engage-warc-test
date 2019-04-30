@@ -1,0 +1,3 @@
+proxy:
+  coll: smgov
+  recording: true

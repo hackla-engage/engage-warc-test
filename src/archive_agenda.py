@@ -8,6 +8,7 @@ import time
 from warcio.warcwriter import WARCWriter
 from warcio.statusandheaders import StatusAndHeaders
 import requests
+import sys
 
 def parse_session(html, year):
 	soupget = BeautifulSoup(html, 'html.parser')
@@ -27,9 +28,15 @@ def post_url(url, headers):
 if __name__ == "__main__":
 	config.initalize_project_root()
 	today = time.strftime("%Y%m%d%H%M%S", time.gmtime())
-	#config.initalize_record()
+	config.initalize_record()
 	r = requests.get( config.AGENDA_URL)
 	session_headers = parse_session(r.text, 2018)
+	try:
+		requests.request('POST', config.AGENDA_URL, data=session_headers, proxies={'https': config.RECORD_URL, 'http': config.RECORD_URL}, verify=False)
+	except Exception:
+		print("Error proxy post " , file=sys.stderr)
+	config.terminate()
+	"""
 	fileName = 'rec-' + today + '-psuedos-MacBook-Pro.local.warc.gz'
 	with open( fileName , 'wb') as output:
 		writer = WARCWriter(output, gzip=True)
@@ -38,5 +45,6 @@ if __name__ == "__main__":
 		http_headers = StatusAndHeaders('200 OK', headers_list, protocol='HTTP/1.0')
 		record = writer.create_warc_record(config.AGENDA_URL, 'response', payload=response.raw, http_headers=http_headers)
 		writer.write_record(record)
+	"""
 	
 	

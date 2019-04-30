@@ -11,7 +11,7 @@ SERVER = 'http://localhost:8080'
 
 AGENDA_URL = 'https://www.smgov.net/departments/clerk/agendas.aspx'
 
-RECORD_URL = 'http://localhost:8080/smgov/record'
+RECORD_URL = 'http://localhost:8080/smgov/record/'
 
 def initalize_project_root():
 	os.chdir(PROJECT_ROOT)

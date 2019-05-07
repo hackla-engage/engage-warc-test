@@ -30,10 +30,12 @@ if __name__ == "__main__":
 	today = time.strftime("%Y%m%d%H%M%S", time.gmtime())
 	config.initalize_record()
 	r = requests.get( config.AGENDA_URL)
-	session_headers = parse_session(r.text, 2018)
+	session_headers = parse_session(r.text, 2016)
 	try:
-		requests.request('POST', config.AGENDA_URL, data=session_headers, proxies={'https': config.RECORD_URL, 'http': config.RECORD_URL}, verify=False)
+		requests.post(config.AGENDA_URL, data=session_headers, proxies={'http' : config.RECORD_URL}, verify=False)
+		time.sleep(5)
 	except Exception:
+		traceback.print_exc()
 		print("Error proxy post " , file=sys.stderr)
 	config.terminate()
 	"""

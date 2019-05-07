@@ -63,3 +63,5 @@ https://pywb.readthedocs.io/en/latest/index.html
 
 https://warc.readthedocs.io/en/latest/
 
+## Helpful Links
+standalone warch player https://github.com/webrecorder/webrecorder-player

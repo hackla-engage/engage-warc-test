@@ -2,11 +2,13 @@ import os
 import config
 
 import sys, argparse
-
+import time
 import requests
 
 def save_agenda_item(url):
-	
+	"""
+	TODO: needs to use selenium
+	"""
 	try:
 		with requests.get(config.RECORD_URL + "/" + url) as response:
 				print(response.text)
@@ -42,7 +44,7 @@ def main(argv):
 	elif url_options is 3:
 		meeting_url = options.url.format(options.id)
 	config.initalize_record()
-	#save_agenda_item(meeting_url)
+	save_agenda_item(meeting_url)
 	config.terminate()
 
 

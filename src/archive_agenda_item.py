@@ -3,6 +3,19 @@ import config
 
 import sys, argparse
 
+import requests
+
+def save_agenda_item(url):
+	
+	try:
+		with requests.get(config.RECORD_URL + "/" + url) as response:
+				print(response.text)
+				return True
+	except:
+		print( "Saving url failed : " + url, file=sys.stderr)
+		return False
+	
+
 
 def main(argv):
 	parser = argparse.ArgumentParser(description="Archive Agenda ID to warc file \n" +
@@ -28,6 +41,9 @@ def main(argv):
 		meeting_url = options.url
 	elif url_options is 3:
 		meeting_url = options.url.format(options.id)
+	config.initalize_record()
+	#save_agenda_item(meeting_url)
+	config.terminate()
 
 
 if __name__ == "__main__":

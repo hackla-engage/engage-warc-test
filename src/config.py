@@ -13,6 +13,8 @@ AGENDA_URL = 'https://www.smgov.net/departments/clerk/agendas.aspx'
 
 RECORD_URL = 'http://localhost:8080/smgov/record'
 
+AGENDA_ID_URL = 'http://santamonicacityca.iqm2.com/Citizens/Detail_Meeting.aspx?ID='
+
 def initalize_project_root():
 	os.chdir(PROJECT_ROOT)
 

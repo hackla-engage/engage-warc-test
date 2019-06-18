@@ -5,6 +5,7 @@ import os
 import config
 from datetime import datetime
 
+import re
 # type(f) = warc.warc.WARCFile
 # type(record) = warc.warc.WARCRecord
 # vars(warc.warc.WARCRecord) = {'header': <WARCHeader: type='response', record_id='<urn:uuid:45f3f82c-446d-11e9-b1c6-784f43777a5e>'>, 'payload': <warc.utils.FilePart object at 0x104a12128>, '_content': None}
@@ -26,6 +27,16 @@ class ArchiveUrl:
 		"""
 		return config.SERVER + '/' + config.COLLECTION_NAME + '/' + self.datetime.strftime('%Y%m%d%H%M%S') + 'mp_'  + '/' + self.url
 
+	def is_agenda_item(self):
+		"""
+		All agenda items has the same format. 
+		http://santamonicacityca.iqm2.com/Citizens/Detail_Meeting.aspx?ID=####
+		Example: http://santamonicacityca.iqm2.com/Citizens/Detail_Meeting.aspx?ID=1199
+
+		Just do a simple regex match. I can technically create a parser to grab the ID
+		"""
+		prog = re.compile('.*//santamonicacityca.iqm2.com/Citizens/Detail_Meeting.aspx?.*')
+		return prog.match(self.url) is not None
 """
 This funtion generates all the ArchiveURLs
 """
@@ -45,4 +56,4 @@ if __name__ == "__main__":
 			print( ",".join([ record['WARC-Target-URI'],record['WARC-Record-ID'],record['WARC-Date'],f_name ])  ) #we only need the first record.
 			break
 	for url in generateURL():
-		print(url.get_wayback_url())
+		print("url: " + url.get_wayback_url() + ",is_agenda_item: " + str(url.is_agenda_item()))

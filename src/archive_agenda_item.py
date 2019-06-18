@@ -4,18 +4,28 @@ import config
 import sys, argparse
 import time
 import requests
+from selenium import webdriver
+
+"""
+TODO: I need to add more debug messages
+I need to figure out when archiving fails
+"""
 
 def save_agenda_item(url):
 	"""
-	TODO: needs to use selenium
+	TODO: I need to figure out when pywb finishes loading
 	"""
+	driver = webdriver.Chrome()
+
 	try:
-		with requests.get(config.RECORD_URL + "/" + url) as response:
-				print(response.text)
-				return True
+		driver.get(config.RECORD_URL + "/" + url)
+		time.sleep(20)
+		driver.close()
+		return True
 	except:
 		print( "Saving url failed : " + url, file=sys.stderr)
 		return False
+	
 	
 
 

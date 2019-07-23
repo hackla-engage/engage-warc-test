@@ -40,16 +40,15 @@ navigate to http://localhost:8080/smgov/record/<url> in the browser # --auto-int
 wb-manager reindex smgov
 ```
 
-## Models
-https://github.com/hackla-engage/engage-backend/blob/master/CouncilTag/ingest/models.py
+## HackforLa Scraper Library
 
-## Process
-https://github.com/hackla-engage/engage-backend/blob/master/CouncilTag/ingest/data.py
+https://github.com/hackla-engage/engage-scraper
 
-## Main
-https://github.com/hackla-engage/engage-backend/blob/master/CouncilTag/ingest/management/commands/scrape_data.py
+### Models
+https://github.com/hackla-engage/engage-scraper/blob/master/engage_scraper/scraper_logics/santamonica_scraper_models.py
 
-https://github.com/hackla-engage/engage-backend/blob/master/CouncilTag/ingest/utils.py
+### Process
+https://github.com/hackla-engage/engage-scraper/blob/master/engage_scraper/scraper_logics/santamonica_scraper_logic.py 
 
 ## Source Website
 https://www.smgov.net/departments/clerk/agendas.aspx

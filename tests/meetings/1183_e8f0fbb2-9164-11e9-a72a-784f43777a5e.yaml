@@ -3,15 +3,6 @@
   cutoff_time: 0 #
   pdf_location: "http://santamonicacityca.iqm2.com/Citizens/FileOpen.aspx?Type=14&ID=1186&Inline=True"
   agendas:
-    - title: "Approval of Big Blue Bus (BBB) lease extension with Bearcomm for Hollywood Hills Radio Site"
-      agenda_item_id: 3610
-      department: "Big Blue Bus, Finance & Administrative Services"
-      category: "03. Consent Calendar"
-      discussion: "BBB implemented an Advanced Fleet Management System (AFMS) in 2003 for transit vehicles that provides Computer Aided Dispatch/Automatic Vehicle Location (CAD/AVL) data.  In support of the AFMS, the City entered into a sublease with Advanced Electronics, the predecessor-in-interest to Bear Communications, Inc. on February 8, 2005 to install radio transponders at the Hollywood Hills antenna site. Currently, the Hollywood Hills antenna site houses BBB’s radio equipment which provides support for the AFMS, voice communication (two-way radio between buses and dispatch), data for real-time signage and customer trip-planning applications such as NextBus, Transit, and Google Transit, and vehicle tracking. BBB utilizes these radio frequencies to communicate with vehicles, collect data to locate and monitor those vehicles, and provide real-time scheduling information to many other transit agencies and systems.  The data provides real-time information to customers on bus arrival information through various applications, providing an advanced customer service experience to the community. The sublease was for a five (5) year term with two separate options to extend for five (5) years each. The City exercised both options, and the second option expired on April 30, 2019. The BBB seeks to reinstate this sublease to prevent any interruption of radio communications, impacting services provided by BBB and other regional transit operators."
-      summary: "In 2005, Big Blue Bus (BBB) entered into an agreement with Advanced Electronics, the predecessor-in-interest to Bear Communications, Inc., for the sublease of an antenna site in the Hollywood Hills to install radio transponders to allow BBB to communicate with its vehicles across its service area. The antenna site is the only location available to adequately provide data signals to BBB’s operational systems. Staff recommends that City Council authorize the City Manager to negotiate and execute a second amendment and reinstatement to the Antenna Site Sublease Agreement #4553 with Bear Communications, Inc. for one year with four additional one-year options, and for additional compensation in an amount not to exceed $181,000.  The amount for the first year of the extension would be $32,600. This would result in a 20-year amended agreement with a new total contract amount not to exceed $507,000, with future year funding contingent on Council budget approval. This is a sole source procurement due to Federal Communications Commission (FCC) regulations regarding the BBB’s ability to transmit radio signals."
-      url: "http://santamonicacityca.iqm2.com/Citizens/Detail_LegiFile.aspx?Frame=&MeetingID=1183&MediaPosition=&ID=3610&CssClass="
-      recommended_actions:
-        - "Staff recommends that City Council authorize the City Manager to negotiate and execute a second amendment and reinstatement of agreement #4553 in the amount of $181,000 with Bear Communications, Inc., a California corporation, for extension of an antenna site lease. The change would result in a 20-year amended agreement with a total contract amount not to exceed $507,000, with future year funding contingent on Council budget approval."
     - title: "Award Agreement for Citywide Roofing Contractor Services"
       agenda_item_id: 3448
       department: "Public Works, Facilities Maintenance"
@@ -31,5 +22,11 @@
         - number_of_vendors: 28
         - number_submittals_received: 5
         - date_publicity_open: "2/22/2019"
+    - title: Approval of Big Blue Bus (BBB) lease extension with Bearcomm for Hollywood Hills Radio Site
+      url: "http://santamonicacityca.iqm2.com/Citizens/Detail_LegiFile.aspx?Frame=&MeetingID=1183&MediaPosition=&ID=3610&CssClass="
+      recommended_action: 
+        - "Staff recommends that City Council authorize the City Manager to negotiate and execute a second amendment and reinstatement of agreement #4553 in the amount of $181,000 with Bear Communications, Inc., a California corporation, for extension of an antenna site lease. The change would result in a 20-year amended agreement with a total contract amount not to exceed $507,000, with future year funding contingent on Council budget approval."
+
+  archive_uuid: e8f0fbb2-9164-11e9-a72a-784f43777a5e
       
 

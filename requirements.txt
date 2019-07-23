@@ -9,3 +9,4 @@ cdxj-indexer
 chromedriver-binary
 beautifulsoup4
 selenium
+engage-scraper

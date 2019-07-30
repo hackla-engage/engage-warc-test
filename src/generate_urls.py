@@ -18,6 +18,9 @@ class ArchiveUrl:
 		self.datetime = datetime.strptime(d, '%Y-%m-%dT%H:%M:%SZ')
 		self.filename = file
 
+	def get_filename(self):
+		return self.filename
+
 	def get_wayback_url(self):
 		"""
 		This function generates the wayback url when the wayback server is running
@@ -52,4 +55,4 @@ def generateURL():
 
 if __name__ == "__main__":
 	for url in generateURL():
-		print("url: " + url.get_wayback_url() + ",is_agenda_item: " + str(url.is_agenda_item()))
+		print("url: " + url.get_wayback_url() + ",is_agenda_item: " + str(url.get_filename()) )

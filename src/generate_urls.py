@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import warc
-import os
+import os, sys
 import config
 from datetime import datetime
 
@@ -43,17 +43,13 @@ This funtion generates all the ArchiveURLs
 def generateURL():
 	warc_files = os.listdir(config.COLLECTIONS_PATH)
 	for f_name in warc_files:
+		if f_name == "_warc_cache": # Apparently warc modules makes its own cache directory _warc_cache
+			continue
 		f = warc.open( config.COLLECTIONS_PATH + str(f_name))
 		for record in f:
 			yield ArchiveUrl( record['WARC-Target-URI'],record['WARC-Record-ID'],record['WARC-Date'],f_name ) #we only need the first record.
 			break
 
 if __name__ == "__main__":
-	warc_files = os.listdir(config.COLLECTIONS_PATH)
-	for f_name in warc_files:
-		f = warc.open( config.COLLECTIONS_PATH + str(f_name))
-		for record in f:
-			print( ",".join([ record['WARC-Target-URI'],record['WARC-Record-ID'],record['WARC-Date'],f_name ])  ) #we only need the first record.
-			break
 	for url in generateURL():
 		print("url: " + url.get_wayback_url() + ",is_agenda_item: " + str(url.is_agenda_item()))

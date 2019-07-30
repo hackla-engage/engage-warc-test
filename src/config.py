@@ -5,6 +5,8 @@ import time
 PROJECT_ROOT = os.path.realpath(__file__ + "/../../")
 
 COLLECTIONS_PATH = PROJECT_ROOT + '/collections/smgov/archive/'
+TEST_DIRECTORY_PATH = PROJECT_ROOT + '/tests/'
+AGENDA_ITEM_PATH = TEST_DIRECTORY_PATH + 'agenda_item/'
 
 COLLECTION_NAME = 'smgov'
 SERVER = 'http://localhost:8080'

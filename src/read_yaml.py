@@ -7,20 +7,30 @@ except ImportError:
     from yaml import Loader, Dumper
 
 class TestBase:
-	def __init__(self, unix_time, archive_uuid, url, id):
+	def __init__(self, archive_uuid, url, id):
 		self.archive_uuid = archive_uuid
-		self.unix_time = unix_time
 		self.url = url
 		self.id = id
 
 class MeetingItemCase(TestBase):
 	def __init__(self, unix_time, archive_uuid, url, id):
 		super().__init__(
-			unix_time=unix_time, 
 			archive_uuid=archive_uuid,
 			id=id,
 			url=url
 		)
+		self.unix_time=unix_time
+
+class AgendaItemCase(TestBase):
+	def __init__(self, title, department, archive_uuid, url, id):
+		super().__init__(
+			archive_uuid=archive_uuid,
+			id=id,
+			url=url
+		)
+		self.title = title
+		self.department = department
+
 
 """
 Todo: Figure out a better way to find meeting id
@@ -37,8 +47,21 @@ def read_meeting_id(id):
 				url=data[0]['url'],
 				id=id
 			)
-	
+
+def read_agenda_id(id):
+	agenda_item_file_names = os.listdir(config.AGENDA_ITEM_PATH)
+	for file_name in agenda_item_file_names:
+		data = load(open(config.AGENDA_ITEM_PATH+"/"+file_name, 'r'), Loader=Loader)
+		if data[0]['agenda_item_id'] == id:
+			return AgendaItemCase(
+				title=data[0]['title'],
+				department=data[0]['department'],
+				archive_uuid=data[0]['archive_uuid'],
+				url=data[0]['url'],
+				id=id
+			)	
 
 
 if __name__ == "__main__":
 	read_meeting_id(1183)
+	print(read_agenda_id(3610))

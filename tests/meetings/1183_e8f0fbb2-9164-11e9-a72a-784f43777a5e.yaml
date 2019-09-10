@@ -1,6 +1,7 @@
 - meeting_id: 1183
   meeting_time: 1560299400
   cutoff_time: 0 #
+  url: "http://santamonicacityca.iqm2.com/Citizens/Detail_Meeting.aspx?ID=1183"
   pdf_location: "http://santamonicacityca.iqm2.com/Citizens/FileOpen.aspx?Type=14&ID=1186&Inline=True"
   agendas:
     - title: "Award Agreement for Citywide Roofing Contractor Services"

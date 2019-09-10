@@ -4,6 +4,7 @@ urllib3
 -e git+https://github.com/hungrymonkey/warc.git@python3_popol1991#egg=warc ##warc issue #2
 warcio
 cdxj-indexer
+pyyaml
 
 #scraper deps
 chromedriver-binary

@@ -20,6 +20,13 @@ class MeetingItemCase(TestBase):
 			url=url
 		)
 		self.unix_time=unix_time
+	def to_json(self):
+		return {
+			"unix_time" : self.unix_time,
+			"url" : self.url,
+			"id" : self.id,
+			"archive_uuid" : self.archive_uuid,
+		}
 
 class AgendaItemCase(TestBase):
 	def __init__(self, title, department, archive_uuid, url, id):
@@ -30,6 +37,15 @@ class AgendaItemCase(TestBase):
 		)
 		self.title = title
 		self.department = department
+
+	def to_json(self):
+		return {
+			"department" : self.department,
+			"url" : self.url,
+			"id" : self.id,
+			"archive_uuid" : self.archive_uuid,
+			"title" : self.department,
+		}
 
 
 """
@@ -64,4 +80,4 @@ def read_agenda_id(id):
 
 if __name__ == "__main__":
 	read_meeting_id(1183)
-	print(read_agenda_id(3610))
+	print(read_agenda_id(3610).to_json())

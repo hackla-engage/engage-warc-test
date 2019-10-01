@@ -5,6 +5,7 @@ import os, sys
 import config
 from datetime import datetime
 
+from urllib.parse import urlparse 
 import re
 # type(f) = warc.warc.WARCFile
 # type(record) = warc.warc.WARCRecord
@@ -52,6 +53,22 @@ def generateURL():
 		for record in f:
 			yield ArchiveUrl( record['WARC-Target-URI'],record['WARC-Record-ID'],record['WARC-Date'],f_name ) #we only need the first record.
 			break
+
+def check_agenda_id(archive_url, num):
+	parse_result = urlparse( archive_url.url )
+	if( "santamonicacityca.iqm2.com" == parse_result.netloc and "/Citizens/Detail_LegiFile.aspx" == parse_result.path):
+		tokens = parse_result.query.split("&")
+		if "ID=" + str(num) in tokens:
+			return True
+		else:
+			return False
+
+def get_agenda_item_archive(num):
+	for archive_url in generateURL():
+		if (check_agenda_id(archive_url, num)):
+			return archive_url
+	return None
+		
 
 if __name__ == "__main__":
 	for url in generateURL():

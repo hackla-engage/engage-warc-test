@@ -10,4 +10,5 @@ pyyaml
 chromedriver-binary
 beautifulsoup4
 selenium
-engage-scraper
+python-twitter==3.5
+-e git+https://github.com/hungrymonkey/engage-scraper.git@remove_db#egg=engage-scraper #engage-scraper

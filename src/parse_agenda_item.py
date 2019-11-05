@@ -9,7 +9,7 @@ Input: Soup, meeting id
 
 """
 def parse_agenda_item(soup, meet_id):
-	a = SantaMonicaScraper(committee="Santa Monica City Council")
+	a = SantaMonicaScraper()
 	return a._process_agenda(soup, meet_id)
 
  
